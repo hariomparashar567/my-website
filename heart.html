@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f8e1e1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Centering the content */
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .heart {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transform: rotate(-45deg); /* Rotate the heart 90 degrees left */
+      margin-bottom: 20px;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart:before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart:after {
+      left: 50px;
+      top: 0;
+    }
+
+    .message {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 20px;
+      display: none;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff4c4c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff1a1a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart"></div>
+    <button class="btn" onclick="showMessage()">Click Me!</button>
+    <p class="message">I Love You More Than Words Can Express</p>
+  </div>
+
+  <script>
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Function to display the love message
+    function showMessage() {
+      document.querySelector('.message').style.display = 'block';
+    }
+
+    // Event listener for click to change background color
+    document.body.addEventListener('click', function() {
+      document.body.style.backgroundColor = getRandomColor();
+    });
+  </script>
+</body>
+</html>
